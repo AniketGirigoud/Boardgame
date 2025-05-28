@@ -1,32 +1,46 @@
 pipeline {
-    agent any
+    agent {label 'aniket'}
     
     tools {
-        maven 'maven3.6'
-        jdk 'jdk17'
+        maven 'maven-2'
     }
-
-    stages {
+    
+    stages{
+        stage('git checkout') {
+            steps{
+                git branch: 'main', url: 'https://github.com/jaiswaladi246/Boardgame.git'
+            }
+        }
+        stage('validate') {
+                steps{
+                    sh 'mvn validate'
+                }
+            }
+            stage('compile'){
+                steps{
+                    sh 'mvn compile'
+                }
+            }
+            stage('test') {
+                steps{
+                    sh 'mvn test'
+                }
+            }
+            stage('package') {
+                steps{
+                    sh 'mvn package'
+                }
+            }
+            stage('install') {
+                steps{
+                    sh 'mvn install'
+                }
+            }
+            stage("completed") {
+                steps{
+                    sh 'hello Jenkins Job is completed'                }
+            }
+        }
         
-        stage('Compile') {
-            steps {
-             sh 'mvn compile'
-            }
-        }
-        stage('test') {
-            steps {
-                sh 'mvn test'
-            }
-        }
-        stage('Package') {
-            steps {
-               sh 'mvn package'
-            }
-        }
-        stage('Hello') {
-            steps {
-                echo 'Hello World'
-            }
-        }
     }
-}
+    
