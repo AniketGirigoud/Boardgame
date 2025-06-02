@@ -1,5 +1,5 @@
 pipeline {
-    agent {label 'aniket'}
+    agent any
     
     tools {
         maven 'maven-2'
