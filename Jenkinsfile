@@ -1,8 +1,9 @@
 pipeline {
-    agent {label 'aniket'}
+    agent any
     
     tools {
-        maven 'maven-2'
+        maven 'maven-1'
+        jdk 'jdk17'
     }
     
     stages{
