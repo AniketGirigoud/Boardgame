@@ -39,7 +39,7 @@ pipeline {
             }
             stage("completed") {
                 steps{
-                    sh 'echo hello Jenkins Job is completed'                }
+                    sh 'echo hello Jenkins Job is completed successfully'                }
             }
         }
         
