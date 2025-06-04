@@ -1,0 +1,11 @@
+checking test cases in jenkins script 
+stages{
+stage('test'){
+when {
+changeset "file.txt"
+}
+steps{
+   sh 'mvn test'
+}
+}
+}
