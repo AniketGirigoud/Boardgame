@@ -1,6 +1,6 @@
 checking test cases in jenkins script 
 stages{
-stage('test'){
+stage('testing test cases'){
 when {
 changeset "file.txt"
 }
