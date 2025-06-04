@@ -42,6 +42,14 @@ pipeline {
                     sh 'echo hello Jenkins Job is completed successfully---'                }
             }
         }
+        post {
+            success {
+                echo "pipeline is scuucess"
+            }
+            failure{
+                echo "pipeline is failed"
+            }
+        }
         
     }
     
